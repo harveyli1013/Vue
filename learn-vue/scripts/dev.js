@@ -25,7 +25,6 @@ const outputFormat = format.startsWith('global')
   : format === 'cjs'
   ? 'cjs'
   : 'esm'
-console.log('outputFormat: ', outputFormat)
 
 const postfix = format.endsWith('-runtime')
   ? `runtime.${format.replace(/-runtime$/, '')}`
