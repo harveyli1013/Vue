@@ -1,0 +1,46 @@
+<!--
+ * @Author: harvey —— fxli@yuansuan.cn
+ * @Date: 2023-09-27 20:51:46
+ * @LastEditors: harvey_li fxli@yuansuan.cn
+ * @LastEditTime: 2023-09-28 14:37:42
+ * @Description: 
+ * Copyright (c) 2023 by harvey —— email: fxli@yuansuan.cn, All Rights Reserved.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="test">
+        <div class="inner1">{{msg}}</div>
+        <div class="inner2">{{msgMore}}</div>
+      </div>
+      <button @click="onClick">点击</button>
+    </div>
+    <script src="../dist/vue.global.js"></script>
+    <script>
+      // 创建app
+      const instance = Vue.createApp({
+        setup() {
+          const msg = Vue.ref(1)
+          const msgMore = Vue.computed(() => msg.value + ' world')
+
+          function onClick() {
+            console.log('点击')
+            msg.value++
+          }
+
+          return {
+            msg,
+            msgMore,
+            onClick
+          }
+        }
+      }).mount('#app')
+      console.log('instance: ', instance)
+    </script>
+  </body>
+</html>
